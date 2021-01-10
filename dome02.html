@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let b = 1;
+        // if(true){
+        //     let a =2 ;
+        //     b = b+2;
+        //     //console.log(111);
+        //     let b;
+        // }
+        // console.log(b);
+        // if(true){
+        //     var a =10;
+        // }
+        // console.log(a);
+        // var obj = {
+        //     name:'张三',
+        //     age:18
+        // }
+        // obj.name = 13;
+        // const a = 1;
+        // a = a+1;
+        // console.log(a);
+        // let obj = {
+        //     name:"zs",
+        //     age:18,
+        //     sex:"男"
+        // }
+        // console.log(obj.name,obj.age,obj.sex);
+        // let {name,age,sex} = obj;
+        // console.log();
+        // const o = {
+        //     name: 'allie',
+        //     age: 14,
+        //     family: {
+        //         mother: '小红',
+        //         father: '小花'
+        //     }
+        // }
+        // const {name,age,family:{mother,father}} = o;
+        // console.log(name,age,mother,father);
+        //var a1 = {a:1,b:2};
+        // var a2 = {c:13};fgdb                                      
+        //将a2的原型设置给a1
+        // console.log(Object.setPrototypeOf(a1,a2));
+        // var arr = [1,[2,4],8,[12,1222]];
+        // var  [a,b,c,d] = arr;
+        // console.log(a,b,c,d);
+        //   const a =  Number.isNaN.apply(String,['23',1]);
+        //   console.log(a);
+        //241489877
+        //let result = Math.max.apply(Math,[233,89,11,44]);
+        // let result = Math.max(...[233,89,11,44]);
+        // console.log(result);
+        // Math.trunc();
+        let obj = {
+            name: 'allie',
+            age: 14,
+            family: {
+                mother: '小红',
+                father: '小花'
+            }
+        }
+
+        function copy(obj) {
+            let newObj = {};
+            for (var item in obj) {
+                newObj[item] = obj[item];
+            }
+            return newObj;
+        }
+        let res = copy(obj);
+        //console.log(obj,res);[]
+        function deepClone(obj) {
+            //    let newObj = {};
+            //    if(obj.hasOwnerPrototype()){
+
+            //    }
+            let newObj = Array.isArray(obj) ? [] : {};
+            // if (Array.isArray(newObj)) {
+            //     for (var item in obj) {
+            //         newObj[item] = obj[item];
+            //     }
+            // }else{
+            //     return newObj;
+            // }
+            for (var key in obj) {
+                if (obj.hasOwnProperty('key')) {
+                   newObj[key] = deepClone(obj[key]);
+                }else{
+                    newObj[key] = obj[key];
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>

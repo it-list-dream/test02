@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container1 {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background: yellow;
+        }
+
+        #animate {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="item">我是容器</div>
+    <p><button onclick="myMove()">单击我</button></p>
+
+    <div id="container1">
+        <div id="animate"></div>
+    </div>
+    <script>
+        "use strict"
+        let obj = {
+            name: 'zs',
+            age: 19,
+            goods: [{
+                    id: 1,
+                    price: 12
+                },
+                {
+                    id: 1,
+                    price: 12
+                },
+                {
+                    id: 1,
+                    price: 12
+                }
+            ]
+        }
+        //结构起别名
+        let {
+            name: myName,
+            age: myAge
+        } = obj;
+        console.log(myName, myAge);
+
+        //字符串的拼接
+        let fruits = ['西瓜', '苹果', '香蕉', '橘子'];
+        var str = '<ul>';
+        for (var i = 0; i < fruits.length; i++) {
+            str += `<li>${fruits[i]}</li>`;
+        }
+        str += '</ul>';
+        //插入dom节点
+        var div = document.getElementById('container');
+        div.innerHTML = str;
+        //div.attribute = 'haha';
+        div.setAttribute('data', '123');
+        // div.classList.add('a');
+        // div.classList.add('b');
+        // div.classList.remove('b');
+        div.style.color = "red";
+
+        function createDOM() {
+            var d1 = document.createElement('div');
+            document.body.appendChild(d1);
+            var p1 = document.createElement('p');
+            d1.appendChild(p1);
+            p1.innerHTML = '我是一段文字';
+            //删除节点
+            //d1.removeChild(p1);
+            //替换节点
+
+        }
+
+        createDOM()
+        //创建animation动画
+        // function myMove() {
+        //     var elem = document.getElementById("animate");;
+        //     //初始化的位置
+        //     var elePostion = 0;
+        //     var time = setInterval(frame, 5);
+
+        //     function frame() {
+        //         if (elePostion == 350) {
+        //             clearInterval(time);
+        //         } else {
+        //             elePostion++;
+        //             elem.style.top = elePostion + 'px';
+        //             elem.style.left = elePostion + 'px';
+        //         }
+        //     }
+
+        // }
+        //找1-100质数   只能被1或者是自身整除的数
+        // for (var i = 1; i <= 100; i++) {
+        //     console.log(i);
+        // }
+        // var j = 1;
+        // var sum = 0;
+        // do {
+        //     sum += j;
+        // } while (j <= 100);
+        // console.log(sum);
+        var str = 'abererercdddseeff';
+        // function opearCount(str) {
+        //     var obj = {};
+        //     var index = 0;
+        //     var maxStr = '';
+        //     for (var i = 0; i < str.length; i++) {
+        //         var key = str.charAt(i);
+        //         if (obj[key]) {
+        //             obj[key]++;
+        //         } else {
+        //             obj[key] = 1;
+
+        //         } 
+        //     }
+        //     for (var item in obj) {
+        //         if(index < Math.max(obj[item])){
+        //           index = Math.max(obj[item]);
+        //           maxStr = item;
+        //         }
+        //     }
+        //     return maxStr+'出现次数最多，出现了'+index+'次';
+        // }
+        // var res = opearCount(str);
+        // console.log(res);
+        //使用正则表达式
+        //1.先将字符串变成数组，然后排序之后，转化为字符串
+        var newStr = str.split('').sort().join('');
+        //console.log(newStr);
+        //字面量创建正则
+        //aacccdddd
+        //var reg = new RegExp();
+        // var reg = /(\w)\1+?/g;
+        // var r1 = reg.exec(newStr);
+        // console.log(r1);
+        // for (var i = 2; i <= 100; i++) {
+        //     var onOff = true;
+        //     for (var j = 2; j < i; j++) {
+        //         if (!(i % j)) {
+        //             onOff = !onOff;
+        //             break;
+        //         }
+        //     }
+        //     if (onOff) {
+        //         console.log(i + '是质数');
+        //     }
+        // }
+        //         var num = 10;
+        //         try {
+        //             var newError = s;
+        //          //   throw new Error('fdf');
+
+        //         } catch (error) {
+        //             console.log(error);
+        //         }
+        //    let person = {
+        //        name:'战三',
+        //        age:14,
+        //        grade:[13,90,130,80,99]
+        //    }
+        //    let arr = [1,89,77];
+        //    window.localStorage.setItem('person',person);
+        //    window.localStorage.setItem('arr',arr);
+        //   var res =  localStorage.getItem('arr');
+        //   for(var i =0;i<res.length;i++){
+        //       console.log(res[i]);
+        //   }
+        //   var p =localStorage.getItem('person');
+        //   console.log(p);
+        // console.log(res);
+        // new Error().a =123;
+        //    console.dir(new Error('今天天气真好！'));
+        //     setTimeout(()=>{
+        //      console.log(num);
+        //     },2000);
+
+        // var s =123;
+        // test(1,3);
+        // function test(a,b){
+        //     console.log(this);
+        //     return a+b;
+        // }
+        //  let arr1 = [1,3,5,7,9];
+        //  let arr2 = [1,4,5,19,21];
+        //  let newArr = arr1.concat(arr2);
+        //  let newArr1 = [];
+        //  for(var i =0;i<newArr.length;i++){
+        //    if(newArr1.indexOf(newArr[i])==-1){
+        //       newArr1.push(newArr[i]);
+        //    }
+        //  }
+        //  console.log(newArr1);
+        // function foo(a, b = 10) {
+        //     console.log(a + b); // 1+10=11 => 11
+        // }
+        // foo(1);
+        const outer = () =>{
+            return ()=>{
+                console.log(this);
+                console.log(1111);
+            }
+        }
+        const vue = function(){
+            let a = 1;
+            return function(){
+              console.log(a,this);
+            }
+        }
+        vue()();
+        outer(1)();
+        // public class Animal{
+        //     private String name;
+
+        // }
+    </script>
+</body>
+
+</html>

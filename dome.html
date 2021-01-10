@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #table tr{
+             width:200px;
+             height: 35px;
+     } */
+     .container{
+         height: 2000px;
+     }
+        input[type='text'] {
+            width: 200px;
+            height: 35px;
+            cursor: pointer;
+            padding: 2px 8px;
+            outline: none;
+            background: skyblue;
+            border: 0;
+            color: #ffffff;
+            border-radius: 17px;
+
+        }
+        input::placeholder{
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="container">
+        <table id="table" cellspace="0">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                </tr>
+            </thead>
+            <tbody>
+                  
+            </tbody>
+        </table>
+    </div> -->
+    <div class="container">
+        <input type="text" placeholder="请输入内容" class="input">
+    </div>
+    <script>
+         window.onscroll =  fangdou(show,1000)
+        var input = document.getElementsByClassName('input')[0];
+        // input.onchange = fangdou;
+        function show(){
+            console.log(111);
+        }
+        function fangdou(show,delay){
+            console.log(123);
+            let timer = null;
+              return function(){
+                  if(timer){
+                    clearTimeout(timer);
+                  }
+                  timer = setTimeout(show,delay);
+              }
+        }
+           
+        //     var container = document.getElementById('container').getElementById('table');
+        //    // let table = container.getElementById('table');
+        //     console.log(container,table);
+        //     function addStr() {
+        //         let str = '';
+        //         for (let i = 0; i < 10; i++) {
+        //            str+=`<tr>
+        //             <td>张三${i}</td>
+        //             <td>张三${i}</td>     
+        //             </tr>`;
+        //         }
+        //     }
+        //     addStr()
+    </script>
+</body>
+
+</html>

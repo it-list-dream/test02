@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Function.prototype._call = function(context){
+        //     var fn = new Date() +''+Math.random();
+        //    context[fn] = this;
+        //    console.log(context);
+        //    var result = context[fn](...arguments.slice(1));
+        //    console.log(result);
+        // }
+        // var obj1 = {
+        //     name:1,
+        //     fn:function(){
+
+        //     }
+
+        // }
+        // var obj2 ={
+        //     name:2
+        // }
+        // obj1.fn._call(obj2,1,2,3,4);
+        // var obj = {
+        //     fn:function(){
+        //         setTimeout(function(){
+        //            console.log(this);
+        //         },1000);
+        //     }
+        // }
+        // let a = 12;
+        // console.log(window);
+        // function fn() {
+        //     //window.a = 13;
+        //     this.a = a + 1;
+        //  //   console.log(this.a);
+        // }
+        // fn();
+        // const f = new fn();
+        // const obj = {
+        //     a: 10,
+        //     fn: () => {
+        //         this.a += f.a; //undefined  = undefined +
+        //         return () => {
+        //             this.fn()
+        //         }
+        //     }
+        // }
+        // let b = obj.fn();
+        // b();
+        // console.log(a);
+        // console.log(obj.a)
+        //console.log(window.a);
+        // let a =1;
+        // function fn(){
+        //     this.a = a+1;
+        // }
+        // fn();
+        // console.dir(fn);
+        //fn();
+        //obj.fn();
+        //new fn();
+        //apply,call
+        // class Point {
+        //     static PI = 22 / 7;
+        //     static #totallyRandomNumber = 4;
+        //     constructor(x, y) {
+        //         this.x = x;
+        //         this.y = y;
+        //     }
+        //     static say() {
+        //         console.log('hello world!');
+        //     }
+        // }
+        //let f = new Point(1,6);
+        //console.log(f.x);
+        //Point.say();
+        //  console.log(f);
+        // function A(x, y) {
+        //     this.x = x;
+        //     this.y = y;
+        // }
+        // A.age = 12;
+        // console.log();
+        class Parent {
+            constructor() {
+                this.name = "tom";
+                this.money = 100000;
+                this.house = function () {
+                    console.log(`${this.name}继承了父母的房子`);
+                }
+            }
+        }
+        //     class Son extends Parent{
+        //         #grade =100;
+        //         constructor(money){
+        //             super(money);
+        //             this.name="jack";
+        //             this.age = 18;
+        //            console.log(this.#grade);
+        //         }
+        //     }
+        //   //  var s = new Son();
+        // console.log(s);
+        // s.house();
+
+        //   const obj = {
+        //       a:1
+        //   }
+        //   const a = Symbol();
+        //   obj[a] =2;
+        //   console.log(obj);
+        //   obj[Symbol] =3;
+        // console.log(typeof Symbol());
+        // let s1 = Symbol('1');
+
+        // console.log(s1.description);
+        //    let obj = {
+        //        a:1,
+        //        age:12,
+        //        sex:'男'
+        //    }
+        //    let s = Symbol('hello');
+        //    obj[s] = 'world';
+        //    console.log(obj);
+        //    for(let item in obj){
+        //       console.log(obj[item]);
+        //    }
+        //fdfdf
+        function fn(callback) {
+            console.log(1);
+            //计算量非常大的
+            setTimeout(function () {
+                console.log(2);
+                callback();
+                console.log(4);
+            }, 0);
+        }
+        fn(callback);
+        console.log(3);
+        function callback() {
+            console.log("我是回调函数");
+        }
+    </script>
+</body>
+
+</html>

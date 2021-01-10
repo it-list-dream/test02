@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组和字符串的方法</title>
+    <style>
+        .border3 {
+            position: relative;
+        }
+
+        .border3:before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            border: 1px solid red;
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            -o-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scale(0.5, 0.5);
+            -ms-transform: scale(0.5, 0.5);
+            -o-transform: scale(0.5, 0.5);
+            transform: scale(0.5, 0.5);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="border3">
+        <div class="content">伪类设置的边框</div>
+        <div style="width: 100px;height: 200px;border: 1px solid red;"></div>
+    </div>
+    <script>
+        //         查找字符串中的字符串
+        // indexOf() 方法返回字符串中指定文本首次出现的索引（位置）：
+        //从0开始查找
+        //var str1 = 'hello wolrd';
+        //console.log(str1.indexOf('d'));
+        //lastIndexOf() 方法返回指定文本在字符串中最后一次出现的索引：
+        //  console.log(str1.lastIndexOf('d'));
+        //push返回的结果是 新数组元素的length 数组的添加方法
+        //pop 删除数组的最后一个元素，返回被删除的元素
+        //unshift 向数组的头部添加元素， 返回新数组的长度
+        //unshift 往数组的头部删除一个元素，返回被删除的元素
+        //splice() 方法返回一个包含已删除项的数组：
+        //a=1&b=2
+
+        // function digitCounts(k, n) {
+        //     let sum = 0;
+        //     for (let i = 0; i <= n; i++) {
+        //         let num = i;
+        //         while (num / 10 != 0) {
+        //             if (num % 10 == k) {
+        //                 sum++;
+        //             }
+        //             num = num / 10;
+        //         }
+        //         if (num == k)
+        //             sum++;
+        //     }
+        //     return sum;
+        // }
+        // let result = digitCounts(1, 13);
+        // console.log(result);
+        //计算数字k在0到n中的出现的次数,k可能是0~9的一个值
+        function getUique(n, k) {
+            let index = 0;
+            let str = '';
+            for (var i = 0; i <= n; i++) {
+                if (n == k) {
+                    index++;
+                } else {
+                    str = '' + i;
+                    if (str.includes(k)) {
+                        for(var j =0;j<str.length;j++){
+                            if( str.charAt(i).includes(k)){
+                                index++;
+                            }
+                        }
+                        index++;
+                    }
+                }
+            }
+            //1,10,11,12,13
+            return index;
+
+        }
+        let results = getUique(13, 1);
+        console.log(results);
+        //a=1&b=2  {'a':1,'b':2}
+        function numberToObj() {
+            let str = 'a=1&b=2';
+            let obj = {};
+            let arr = str.split('&'); //['a=1','b=2']
+            let newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                newArr = arr[i].split('='); //['a','1'] ['b','2']
+                for (var j = 0; j < newArr.length; j++) {
+                    if (j % 2 == 0) {
+                        obj[newArr[j]] = newArr[j + 1];
+                    }
+                }
+            }
+            return obj;
+        }
+        let res = numberToObj();
+        console.log(res);
+    </script>
+</body>
+
+</html>
