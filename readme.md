@@ -1,3 +1,7 @@
 ## 今天的日志
 > fdsfsdf
->fdsfdsf
+> fdsfdsf
+>
+> 老子就是这么的牛
+
+   二分法
